@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+
+        body {
+            margin: 0;
+            overflow-y: scroll;
+            background-image: url(https://i.pinimg.com/originals/4f/f0/88/4ff088795aff41e835671f1479fa0366.gif);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100vh;
+            background-color: #000000;
+            
+        }
+        
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 9%;
+            padding: 1rem 6%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-bottom: 5px solid #091833;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+       
+        .logo {
+             font-size: 3rem;
+            color: #976943;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+             transform: scale(1.1);
+             color: #b4844d;
+        }
+
+
+        .navBar {
+            display: flex;
+            gap: 2rem;
+        }
+
+     
+        .navBar a {
+            color: #d3c7ff;
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s ease;
+        }
+
+
+        .navBar a:hover {
+            color:rgb(223, 119, 78);
+            border-bottom: 3px solid rgb(228, 168, 91);
+            transform: scale(1.1);
+            
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.3rem;
+            z-index: 101;
+            transition: 0.5s ease;
+        }
+
+        .hamburger div {
+            width: 2.5rem;
+            height: 0.3rem;
+            background: #fff;
+            border-radius: 5px;
+
+        }
+
+        .hamburger:hover{
+            transform: scale(1.1);
+           
+        }
+      
+        @media (max-width: 768px) {
+            .navBar {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 8%;
+                right: 0;
+                width: 50%;
+                border-left: 2px solid #5a6d8a;
+                padding: 1rem;
+            }
+
+            .navBar.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        section {
+            height: 100vh;
+            padding: 2rem 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .content-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            width: 80%;
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+        }
+
+        section h1 {
+            font-size: 4rem;
+            color: #e0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .gallery {
+            display: flex;
+            overflow-x: scroll;
+            gap: 1rem;
+            padding: 1rem 0;
+            scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+        }
+
+        .gallery img {
+            height: 200px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .arrow.left {
+            left: -3rem;
+        }
+
+        .arrow.right {
+            right: -3rem;
+        }
+
+      
+#Background .content-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 80%;
+    max-width: 900px; 
+    text-align: center;
+    position: relative;
+    margin-top: 10%;
+}
+
+.document-preview img {
+    width: 100%; 
+    max-width: 400px; 
+    height: auto; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.download-button {
+    margin-top: 1rem;
+}
+
+.download-btn {
+    background-color: #e79d48;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background-color: #c88332;
+}
+
+
+        .education-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-image {
+            flex: 1;
+        }
+
+        .education-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+
+        #education {
+            display: flex;
+            align-items: flex-end; 
+            gap: 2rem; 
+        }
+        .still-image {
+            position: absolute;
+            left: 5%; 
+            z-index: 1; 
+        }
+
+        .still-image img {
+    width: 250px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#education .content-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%; 
+    max-width: 900px; 
+}
+
+
+.gallery-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px; 
+}
+
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    height: 200px; 
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.gallery-item .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 10px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 10px 10px;
+}
+
+
+.gallery-item:hover .label {
+    opacity: 1;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+
+.contact-info {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 2rem; 
+    margin-top: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Align items in the center */
+    gap: 1rem; 
+    text-align: center;
+}
+
+.contact-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.contact-item span {
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: #e79d48;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #ffc107;
+}
+
+
+#education .gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 200px;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#education .gallery-container::-webkit-scrollbar {
+    display: none;
+}
+
+#education .gallery-item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+#education .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+#education .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 10px 10px;
+}
+
+#education .gallery-item:hover .label {
+    opacity: 1;
+}
+
+#education .gallery-item:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+#education .gallery-item.blur img {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+}
+
+#education .gallery-item:hover img {
+    filter: none;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px; 
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%; 
+}
+
+.timeline-item img {
+    width: 80%; 
+    max-width: 300px; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.info-box {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 300px; 
+}
+.timeline-item img {
+    width: 200px; 
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0; 
+}
+
+#banner .banner-image img {
+    width: 100%;
+    max-width: 1200px; 
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+
+@media (max-width: 1024px) {
+            html {
+                font-size: 58%;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            header {
+                height: 10%;
+                padding: 1rem 4%;
+            }
+
+            section h1 {
+                font-size: 3.5rem;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            .gallery img {
+                height: 150px;
+            }
+
+            .still-image img {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navBar {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 8%;
+                right: 0;
+                width: 60%;
+                border-left: 2px solid #5a6d8a;
+                padding: 1rem;
+            }
+
+            .navBar.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 1rem;
+            }
+
+            .content-box {
+                width: 95%;
+            }
+
+            .gallery img {
+                height: 120px;
+            }
+
+            .still-image img {
+                width: 80px;
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .timeline-item img {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 50%;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .navBar a {
+                font-size: 1.5rem;
+            }
+
+            .content-box {
+                padding: 1rem;
+            }
+
+            section h1 {
+                font-size: 3rem;
+            }
+
+            .gallery img {
+                height: 100px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">˚˖𓍢ִ໋🦢˚Ashley</a>
+        <nav class="navBar">
+            <a href="index.html">Home</a>
+            <a href="#Background">Background</a>
+            <a href="#education">Education</a>
+            <a href="#contacts">Contacts</a>
+            <a href="#learn-more">More </a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <section id="Background">
+        <div class="content-box">
+            <h1>─ ⋆⋅ About Me 🎐⋅⋆ ─</h1>
+            <div class="experience-item">
+                <div class="document-preview">
+                    <img src="images/resume.jpg" alt="Document Preview" class="document-image">
+                </div>
+                <div class="download-button">
+                    <a href="https://i.pinimg.com/736x/dd/d7/f6/ddd7f6f3d9aa4bc5d7988da35c21154a.jpg" download="Ashley_resume.jpg">
+                        <button class="download-btn">Download Document</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="education">
+        <div class="still-image">
+            <img src="https://i.pinimg.com/736x/42/5e/5e/425e5eb7414baa6b8c2ad9cb0ec3cada.jpg" alt="education picture">
+        </div>
+        <div class="content-box">
+                <div class="content-box">
+                    <h1>⋅‧ ୨ Education ☕୧ ˚ </h1>
+                    <div class="timeline">
+                        <!-- First Picture and Information -->
+                        <div class="timeline-item">
+                            <img src="http://photos.wikimapia.org/p/00/00/24/39/89_big.jpg" alt="Current">
+                            <div class="info-box">
+                                <strong>University of the Cordilleras</strong>
+                                <em>2024</em>
+                            </div>
+                        </div>
+            
+                        <!-- Second Picture and Information -->
+                        <div class="timeline-item">
+                            <img src="https://www.dccp.edu.ph/images/dccp-background.jpg" alt="Education 2">
+                            <div class="info-box">
+                                <strong>DATA Center College of the Philippines, of Baguio City Inc.</strong>
+                                <em>2022-2024</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+    <section id="contacts">
+        <div class="content-box">
+            <h1>˖⁺‧₊˚Contacts˚₊‧⁺˖</h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="https://i.pinimg.com/236x/7d/85/a3/7d85a3cef999993356a74d71b90994f2.jpg" alt="Email Icon">
+                    <a href="mailto:ash20fabro14@gmail.com"> <span>ash20fabro14@gmail.com</span> </a>
+                </div>
+                <div class="contact-item">
+                    <img src="https://i.pinimg.com/736x/64/88/0b/64880b9b0fe5b53bbe3f7280d262b33f.jpg" alt="GitHub Icon">
+                    <span><a href="https://github.com/AshleyProfile" target="_blank">github.com/kowfi-iy</a></span>
+                </div>
+                <div class="contact-item">
+                    <img src="https://i.pinimg.com/236x/34/db/1d/34db1d53bc784b3b94fb3db1d5eac275.jpg" alt="Phone Icon">
+                    <span>+63-915-422-5975</span>
+                </div>
+            </div>
+        </div>
+    </section>
+            
+            <section id="banner">
+                <div class="banner-image">
+                    <img src="https://i.pinimg.com/originals/79/de/27/79de27bafeb77f608ef74b3d02e727ba.gif" alt="Banner">
+                </div>
+            </section>
+    
+
+            <section id="learn-more">
+                <div class="content-box">
+                    <h1>ᶻ 𝗓 My Hobbies 𐰁 .ᐟ</h1>
+                    <div class="gallery-container">
+                        <ul class="gallery" id="learn-more-gallery">
+                            <li class="gallery-item">
+                                <img src="https://i.pinimg.com/originals/87/df/6d/87df6d60f4cc3c07968ae2127bddcc30.gif" alt="Programming">
+                                <span class="label"><strong>Programming</strong></span>
+                            </li>
+                            <li class="gallery-item">
+                                <img src="https://i.pinimg.com/originals/77/01/6d/77016dc7f0b329c9197796587a65cebe.gif" alt="Reading">
+                                <span class="label"> <strong>Reading</strong></span>
+                            </li>
+                            <li class="gallery-item">
+                                <img src="https://i.pinimg.com/originals/40/59/ba/4059bafff3b2393256fdb6f3b95259e1.gif" alt="Art">
+                                <span class="label"><strong>Art</strong></span>
+                            </li>
+                            <li class="gallery-item">
+                                <img src="https://i.pinimg.com/originals/5d/3b/b7/5d3bb797cc3d1bbf0c9ac7befebd940a.gif" alt="Writing">
+                                <span class="label"><strong>Writing</strong></span>
+                            </li>
+                            <li class="gallery-item">
+                                <img src="https://i.pinimg.com/originals/3d/1d/da/3d1dda6f983aadf32f69ef7b08ec7d48.gif" alt="Music">
+                                <span class="label"><strong>Music</strong></span>
+                            </li>
+                            <li class="gallery-item">
+                                <img src="https://i.pinimg.com/originals/34/49/5e/34495ebd3b1804210be912b0b83ea86c.gif" alt="Gaming">
+                                <span class="label"> <strong>Gaming</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+
+    <script>
+        function toggleMenu() {
+            const navBar = document.querySelector('.navBar');
+            navBar.classList.toggle('active');
+        }
+    </script>
+    
+    <script>
+        function scrollGallery(sectionId, distance) {
+            const gallery = document.getElementById(`${sectionId}-gallery`);
+            gallery.scrollBy({
+                left: distance,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
